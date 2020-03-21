@@ -16,10 +16,12 @@ app.use(morgan("dev"));
 
 app.get("/jobs", async (req, res) => {
   try {
-    const jobs = await getAsync("github");
-    res.send(jobs);
+    let jobs = [];
+    jobs.push(await getAsync("github"));
+
+    res.send(...jobs);
   } catch (err) {
-    console.log(err);
+    console.warn(err);
   }
 });
 

@@ -43,6 +43,7 @@ async function fetchGithub() {
   const success = await setAsync("github", JSON.stringify(allJobs));
   console.log(success);
 }
+
 fetchGithub();
 
 module.exports = fetchGithub;
