@@ -1,8 +1,8 @@
-var fetch = require("node-fetch");
-var redis = require("redis");
-const client = redis.createClient();
+import fetch from "node-fetch";
+import { createClient } from "redis";
+import { promisify } from "util";
 
-const { promisify } = require("util");
+const client = createClient();
 
 const setAsync = promisify(client.set).bind(client);
 
@@ -46,4 +46,4 @@ async function fetchGithub() {
 
 fetchGithub();
 
-module.exports = fetchGithub;
+export default fetchGithub;

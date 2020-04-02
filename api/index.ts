@@ -1,11 +1,11 @@
-const express = require("express");
-const redis = require("redis");
-const cors = require("cors");
-const { promisify } = require("util");
+import cors from "cors";
+import express, { Request, Response } from "express";
+import { createClient } from "redis";
+import { promisify } from "util";
 
 const morgan = require("morgan");
 
-const client = redis.createClient();
+const client = createClient();
 const getAsync = promisify(client.get).bind(client);
 
 const app = express();
@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(morgan("dev"));
 
-app.get("/jobs", async (req, res) => {
+app.get("/jobs", async function(req: Request, res: Response) {
   try {
     let jobs = [];
     jobs.push(await getAsync("github"));
@@ -25,4 +25,4 @@ app.get("/jobs", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 5500, (req, res) => {});
+app.listen(process.env.PORT || 5500, () => {});
