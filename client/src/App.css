@@ -1,0 +1,39 @@
+@media (prefers-reduced-motion: no-preference) {}
+
+.jobs {
+  margin   : auto;
+  padding  : 2rem;
+  width    : 70%;
+  font-size: 1.6rem;
+}
+
+.job {
+  width          : 100%;
+  margin         : 2rem 0;
+  padding        : 2rem 1rem;
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+}
+
+.job:hover {
+  cursor: pointer;
+  color : #666;
+}
+
+.detail-logo {
+  height: 3rem;
+  float : right;
+}
+
+.job-company {
+  padding: 0 3rem;
+}
+
+.job-dialog {
+  padding: 3rem 5rem;
+}
+
+.mobile {
+  font-size: 1.6rem !important;
+}
